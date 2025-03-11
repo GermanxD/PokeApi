@@ -11,6 +11,7 @@ class PokemonDetail extends StatelessWidget {
     String formattedId = pokemon.id.toString().padLeft(3, '0');
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
