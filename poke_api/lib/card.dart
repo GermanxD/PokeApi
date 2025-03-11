@@ -9,9 +9,46 @@ class PokemonDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String formattedId = pokemon.id.toString().padLeft(3, '0');
+    Color typeColor = Colors.red; // Default color
+    if (pokemon.types.contains('water')) {
+      typeColor = Colors.blue;
+    } else if (pokemon.types.contains('fire')) {
+      typeColor = Colors.red;
+    } else if (pokemon.types.contains('poison')) {
+      typeColor = Colors.green;
+    } else if (pokemon.types.contains('psychic')) {
+      typeColor = Colors.yellow;
+    } else if (pokemon.types.contains('fairy')) {
+      typeColor = Colors.pink;
+    } else if (pokemon.types.contains('electric')) {
+      typeColor = Colors.amber;
+    } else if (pokemon.types.contains('ground')) {
+      typeColor = Colors.brown;
+    } else if (pokemon.types.contains('rock')) {
+      typeColor = Colors.grey;
+    } else if (pokemon.types.contains('grass')) {
+      typeColor = Colors.green;
+    } else if (pokemon.types.contains('bug')) {
+      typeColor = Colors.lightGreen;
+    } else if (pokemon.types.contains('ghost')) {
+      typeColor = Colors.purple;
+    } else if (pokemon.types.contains('steel')) {
+      typeColor = Colors.blueGrey;
+    } else if (pokemon.types.contains('ice')) {
+      typeColor = Colors.lightBlue;
+    } else if (pokemon.types.contains('dragon')) {
+      typeColor = Colors.indigo;
+    } else if (pokemon.types.contains('fighting')) {
+      typeColor = Colors.orange;
+    } else if (pokemon.types.contains('flying')) {
+      typeColor = Colors.cyan;
+    } else if (pokemon.types.contains('normal')) {
+      typeColor = Colors.grey;
+    }
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: typeColor,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -25,7 +62,7 @@ class PokemonDetail extends StatelessWidget {
         children: [
           Column(
             children: [
-              Expanded(flex: 4, child: Container(color: Colors.red)),
+              Expanded(flex: 4, child: Container(color: typeColor)),
               Expanded(
                 flex: 6,
                 child: Container(
@@ -45,7 +82,7 @@ class PokemonDetail extends StatelessWidget {
                                   ),
                                   padding: const EdgeInsets.all(8.0),
                                   decoration: BoxDecoration(
-                                    color: Colors.red,
+                                    color: typeColor,
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Text(
@@ -62,10 +99,10 @@ class PokemonDetail extends StatelessWidget {
                         const SizedBox(height: 8),
                         Text(
                           'About',
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Colors.red,
+                            color: typeColor,
                           ),
                         ),
                         const SizedBox(height: 8),
@@ -143,10 +180,10 @@ class PokemonDetail extends StatelessWidget {
                         const SizedBox(height: 16),
                         Text(
                           'Base Stats',
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Colors.red,
+                            color: typeColor,
                           ),
                         ),
                         const SizedBox(height: 8),
@@ -184,9 +221,9 @@ class PokemonDetail extends StatelessWidget {
                                         width: 60,
                                         child: Text(
                                           statName,
-                                          style: const TextStyle(
+                                          style: TextStyle(
                                             fontSize: 16,
-                                            color: Colors.red,
+                                            color: typeColor,
                                           ),
                                         ),
                                       ),
@@ -213,7 +250,7 @@ class PokemonDetail extends StatelessWidget {
                                         child: LinearProgressIndicator(
                                           value: stat.baseStat / 100,
                                           backgroundColor: Colors.grey[300],
-                                          color: Colors.red,
+                                          color: typeColor,
                                           minHeight: 10,
                                         ),
                                       ),
