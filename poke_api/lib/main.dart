@@ -7,14 +7,54 @@ void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
+
+  @override
+  _MainAppState createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  String searchQuery = '';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text('Pokémon List')),
+        appBar: AppBar(
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Pokémon List'),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Search Pokémon',
+                        hintStyle: const TextStyle(color: Colors.black),
+                        border: InputBorder.none,
+                        filled: true,
+                        fillColor: Colors.white,
+                        prefixIcon: const Icon(
+                          Icons.search,
+                          color: Colors.black,
+                        ),
+                      ),
+                      style: const TextStyle(color: Colors.black),
+                      onChanged: (value) {
+                        setState(() {
+                          searchQuery = value.toLowerCase();
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(12.0),
@@ -28,7 +68,12 @@ class MainApp extends StatelessWidget {
                 } else if (!snapshot.hasData) {
                   return const Center(child: Text('No data found'));
                 } else {
-                  final pokemons = snapshot.data!;
+                  final pokemons =
+                      snapshot.data!
+                          .where(
+                            (pokemon) => pokemon.name.contains(searchQuery),
+                          )
+                          .toList();
                   return GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(

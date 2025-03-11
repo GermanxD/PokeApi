@@ -64,14 +64,18 @@ class PokemonDetail extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                            color: Colors.red,
                           ),
                         ),
                         const SizedBox(height: 8),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Icon(Icons.line_weight),
+                            Image.asset(
+                              'assets/images/ic_weight.png',
+                              width: 24,
+                              height: 24,
+                            ),
                             const SizedBox(width: 8),
                             Column(
                               children: [
@@ -92,7 +96,11 @@ class PokemonDetail extends StatelessWidget {
                               ],
                             ),
                             const SizedBox(width: 16),
-                            const Icon(Icons.height),
+                            Image.asset(
+                              'assets/images/ic_height.png',
+                              width: 24,
+                              height: 24,
+                            ),
                             const SizedBox(width: 8),
                             Column(
                               children: [
@@ -137,7 +145,7 @@ class PokemonDetail extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                            color: Colors.red,
                           ),
                         ),
                         const SizedBox(height: 8),
@@ -177,7 +185,7 @@ class PokemonDetail extends StatelessWidget {
                                           statName,
                                           style: const TextStyle(
                                             fontSize: 16,
-                                            color: Colors.black,
+                                            color: Colors.red,
                                           ),
                                         ),
                                       ),
@@ -188,20 +196,20 @@ class PokemonDetail extends StatelessWidget {
                                         color: Colors.black,
                                       ),
                                       const SizedBox(width: 8),
-                                      Expanded(
-                                        child: LinearProgressIndicator(
-                                          value: stat.baseStat / 100,
-                                          backgroundColor: Colors.grey[300],
-                                          color: Colors.blue,
-                                          minHeight: 10,
-                                        ),
-                                      ),
-                                      const SizedBox(width: 8),
                                       Text(
                                         '${stat.baseStat}',
                                         style: const TextStyle(
                                           fontSize: 16,
                                           color: Colors.black,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Expanded(
+                                        child: LinearProgressIndicator(
+                                          value: stat.baseStat / 100,
+                                          backgroundColor: Colors.grey[300],
+                                          color: Colors.red,
+                                          minHeight: 10,
                                         ),
                                       ),
                                     ],
