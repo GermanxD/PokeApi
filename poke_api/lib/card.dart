@@ -24,21 +24,39 @@ class PokemonDetail extends StatelessWidget {
         children: [
           Column(
             children: [
-              Expanded(child: Container(color: Colors.red)),
+              Expanded(flex: 4, child: Container(color: Colors.red)),
               Expanded(
+                flex: 6,
                 child: Container(
                   color: Colors.white,
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          pokemon.types.join(', '),
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children:
+                              pokemon.types.map((type) {
+                                return Container(
+                                  margin: const EdgeInsets.symmetric(
+                                    horizontal: 4.0,
+                                  ),
+                                  padding: const EdgeInsets.all(8.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.red,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Text(
+                                    type,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
                         ),
                         const SizedBox(height: 8),
                         Text(
@@ -200,11 +218,10 @@ class PokemonDetail extends StatelessWidget {
           ),
           Positioned(
             top: MediaQuery.of(context).size.height * 0.1,
-            child: Image.network(
-              pokemon.imageUrl,
-              height: MediaQuery.of(context).size.height * 0.4,
-              width: MediaQuery.of(context).size.height * 0.4,
-              fit: BoxFit.cover,
+            child: Container(
+              width: MediaQuery.of(context).size.height * 0.35,
+              height: MediaQuery.of(context).size.height * 0.35,
+              child: Image.network(pokemon.imageUrl, fit: BoxFit.cover),
             ),
           ),
         ],
