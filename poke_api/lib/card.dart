@@ -197,11 +197,15 @@ class PokemonDetail extends StatelessWidget {
                                         color: Colors.black,
                                       ),
                                       const SizedBox(width: 8),
-                                      Text(
-                                        '${stat.baseStat}',
-                                        style: const TextStyle(
-                                          fontSize: 16,
-                                          color: Colors.black,
+                                      SizedBox(
+                                        width: 40,
+                                        child: Text(
+                                          '${stat.baseStat}',
+                                          style: const TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.black,
+                                          ),
+                                          textAlign: TextAlign.right,
                                         ),
                                       ),
                                       const SizedBox(width: 8),
