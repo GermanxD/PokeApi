@@ -148,8 +148,8 @@ class _MainAppState extends State<MainApp> {
                                       const SizedBox(height: 8),
                                       Expanded(
                                         child: Container(
-                                          width: 50,
-                                          height: 50,
+                                          width: 90,
+                                          height: 90,
                                           decoration: BoxDecoration(
                                             image: DecorationImage(
                                               image: NetworkImage(
