@@ -8,30 +8,23 @@ class PokemonDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String formattedId = pokemon.id.toString().padLeft(3, '0');
     return Scaffold(
       appBar: AppBar(
-        title: Text(pokemon.name[0].toUpperCase() + pokemon.name.substring(1)),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(pokemon.name[0].toUpperCase() + pokemon.name.substring(1)),
+            Text('#$formattedId'),
+          ],
+        ),
       ),
       body: Stack(
         alignment: Alignment.center,
         children: [
           Column(
             children: [
-              Expanded(
-                child: Container(
-                  color: Colors.red,
-                  child: Center(
-                    child: Text(
-                      pokemon.name[0].toUpperCase() + pokemon.name.substring(1),
-                      style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              Expanded(child: Container(color: Colors.red)),
               Expanded(
                 child: Container(
                   color: Colors.white,
@@ -39,7 +32,6 @@ class PokemonDetail extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const SizedBox(height: 50),
                         Text(
                           pokemon.types.join(', '),
                           style: const TextStyle(
@@ -207,31 +199,12 @@ class PokemonDetail extends StatelessWidget {
             ],
           ),
           Positioned(
-            top: MediaQuery.of(context).size.height / 2 - 100,
-            child: Column(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: const Offset(0, 3),
-                      ),
-                    ],
-                  ),
-                  child: Image.network(
-                    pokemon.imageUrl,
-                    height: 100,
-                    width: 100,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(height: 8),
-              ],
+            top: MediaQuery.of(context).size.height * 0.1,
+            child: Image.network(
+              pokemon.imageUrl,
+              height: MediaQuery.of(context).size.height * 0.4,
+              width: MediaQuery.of(context).size.height * 0.4,
+              fit: BoxFit.cover,
             ),
           ),
         ],
