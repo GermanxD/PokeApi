@@ -13,7 +13,6 @@ Esta es una aplicación de Pokédex desarrollada en Flutter que utiliza la Poké
 - **Dart**: Lenguaje de programación utilizado en Flutter.
 - **PokéAPI**: API utilizada para obtener información de los Pokémon.
 - **HTTP Package**: Para realizar solicitudes a la API.
-- **Provider / Riverpod** (opcional): Para gestión del estado.
 
 ## Instalación
 1. Clona este repositorio:
