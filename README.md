@@ -22,7 +22,7 @@ Esta es una aplicación de Pokédex desarrollada en Flutter que utiliza la Poké
    ```
 2. Navega al directorio del proyecto:
    ```sh
-   cd pokedex_api
+   cd poke_api
    ```
 3. Instala las dependencias:
    ```sh
