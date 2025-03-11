@@ -16,7 +16,7 @@ class PokemonDetail extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(pokemon.name[0].toUpperCase() + pokemon.name.substring(1)),
-            Text('#$formattedId'),
+            Text('#$formattedId', style: const TextStyle(color: Colors.black)),
           ],
         ),
       ),

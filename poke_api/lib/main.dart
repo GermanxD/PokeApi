@@ -98,6 +98,9 @@ class _MainAppState extends State<MainApp> {
                               ),
                           itemCount: pokemons.length,
                           itemBuilder: (context, index) {
+                            String formattedId = pokemons[index].id
+                                .toString()
+                                .padLeft(3, '0');
                             return GestureDetector(
                               onTap: () {
                                 Navigator.push(
@@ -137,10 +140,11 @@ class _MainAppState extends State<MainApp> {
                                             ),
                                           ),
                                           Text(
-                                            '#${pokemons[index].id}',
+                                            '#$formattedId',
                                             style: const TextStyle(
-                                              fontSize: 16,
+                                              fontSize: 12,
                                               fontWeight: FontWeight.bold,
+                                              color: Colors.grey,
                                             ),
                                           ),
                                         ],
