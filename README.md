@@ -17,7 +17,7 @@ Esta es una aplicación de Pokédex desarrollada en Flutter que utiliza la Poké
 ## Instalación
 1. Clona este repositorio:
    ```sh
-   git clone https://github.com/tu-usuario/PokeApi.git
+   git clone https://github.com/GermanxD/PokeApi.git
    ```
 2. Navega al directorio del proyecto:
    ```sh
